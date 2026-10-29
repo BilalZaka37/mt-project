@@ -1,0 +1,23 @@
+.env
+.venv/
+__pycache__/
+.pytest_cache/
+data/
+node_modules/
+frontend/dist/
+*.pyc
+*.pt
+*.onnx
+test-results/
+*.tsbuildinfo
+*.mp4.part
+# Machine-local vision settings and private runtime state
+Ultralytics/
+.env.*
+!.env.example
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.log
+*.key

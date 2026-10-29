@@ -1,0 +1,49 @@
+name: mt-project
+services:
+  db:
+    image: postgres:17-bookworm
+    environment:
+      POSTGRES_DB: mt_project
+      POSTGRES_USER: mt_project
+      POSTGRES_PASSWORD: ${MT_DB_PASSWORD:?Set MT_DB_PASSWORD in .env}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U mt_project -d mt_project"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+  app:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      MT_DATABASE_URL: postgresql+psycopg://mt_project:${MT_DB_PASSWORD:?Set MT_DB_PASSWORD in .env}@db:5432/mt_project
+      MT_ENCRYPTION_KEY: ${MT_ENCRYPTION_KEY:?Set MT_ENCRYPTION_KEY in .env}
+      MT_SECURE_COOKIE: ${MT_SECURE_COOKIE:-false}
+      MT_MODEL_PATH: ${MT_MODEL_PATH:-/data/models/yolo11n.pt}
+      MT_DEVICE: cpu
+      MT_MAX_CAMERAS: ${MT_MAX_CAMERAS:-8}
+      MT_RETENTION_DAYS: ${MT_RETENTION_DAYS:-7}
+      MT_MEDIA_QUOTA_MB: ${MT_MEDIA_QUOTA_MB:-10240}
+      MT_UPLOAD_MB: ${MT_UPLOAD_MB:-512}
+      MT_SEGMENT_SECONDS: ${MT_SEGMENT_SECONDS:-30}
+      MT_CLIP_PRE_SECONDS: ${MT_CLIP_PRE_SECONDS:-3}
+      MT_CLIP_POST_SECONDS: ${MT_CLIP_POST_SECONDS:-5}
+      MT_WEBHOOK_ALLOWED_HOSTS: ${MT_WEBHOOK_ALLOWED_HOSTS:-}
+      MT_ALLOW_LOCAL_WEBHOOKS: ${MT_ALLOW_LOCAL_WEBHOOKS:-false}
+      MT_ALERT_RETRY_SECONDS: ${MT_ALERT_RETRY_SECONDS:-5}
+    volumes:
+      - media-data:/data
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+    stop_grace_period: 45s
+    security_opt:
+      - no-new-privileges:true
+    cap_drop: [ALL]
+volumes:
+  postgres-data:
+  media-data:
