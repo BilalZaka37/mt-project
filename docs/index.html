@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="MT Project is an original computer vision surveillance prototype built with FastAPI, React, OpenCV and YOLO. Explore the real application workflow, evidence and architecture.">
+  <meta name="theme-color" content="#142a23">
+  <meta property="og:title" content="MT Project — Video intelligence, with purpose.">
+  <meta property="og:description" content="Real video processing. Traceable incidents. A working full-stack computer vision project.">
+  <title>MT Project — Video intelligence, with purpose.</title>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header wrap">
+    <a class="brand" href="#" aria-label="MT Project home"><img src="assets/mark.svg" width="36" height="36" alt=""><span>MT Project<small>VIDEO INTELLIGENCE</small></span></a>
+    <nav aria-label="Main navigation"><a href="#workflow">Watch the workflow</a><a href="#engineering">Engineering</a><a class="nav-source" href="https://github.com/BilalZaka37/mt-project">Source code <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main id="main">
+    <section class="hero wrap">
+      <div class="hero-copy"><p class="eyebrow"><span class="dot"></span> ORIGINAL COMPUTER VISION PROJECT · v0.2</p>
+        <h1>Video intelligence.<br><em>Evidence you can inspect.</em></h1>
+        <p class="intro">MT Project turns video into tracked objects, restricted-zone events, and reviewable evidence. A working full-stack surveillance prototype, from capture to operator response.</p>
+        <div class="actions"><a class="button" href="#workflow">Watch the 87-second workflow <span aria-hidden="true">↓</span></a><a class="text-link" href="https://github.com/BilalZaka37/mt-project">Explore the source <span aria-hidden="true">↗</span></a></div>
+        <p class="hero-note">Independent project · Real application capture · Public validation footage</p>
+      </div>
+      <figure class="hero-image"><div class="image-top"><span class="dot"></span> ACTUAL MT PROJECT OUTPUT <span class="cpu">CPU INFERENCE</span></div><img src="assets/detection.jpg" width="1050" height="823" alt="Actual MT Project browser view with YOLO boxes and tracking IDs on pedestrians, a restricted-zone polygon, and measured pipeline health."><figcaption>YOLO detection + tracking + polygon rules. Public OpenCV sample.</figcaption></figure>
+    </section>
+    <div class="stack wrap" aria-label="Technology stack"><span>BUILT WITH</span><span>Python</span><span>FastAPI</span><span>React</span><span>OpenCV</span><span>YOLO / ByteTrack</span><span>PostgreSQL</span><span>Docker</span></div>
+    <section id="workflow" class="workflow section wrap">
+      <div class="section-head"><div><p class="eyebrow">01 / THE APPLICATION IN ACTION</p><h2>Follow one operational workflow.</h2></div><p>Captured from the functioning local application. Captions explain each step; no audio is required.</p></div>
+      <div class="video-shell"><video controls playsinline preload="metadata" poster="assets/workflow-poster.jpg" aria-label="MT Project: 87-second workflow screen recording"><source src="assets/mt-project-workflow.mp4" type="video/mp4"><p>Your browser cannot play this video. <a href="assets/mt-project-workflow.mp4">Download the recording.</a></p></video></div>
+      <div class="video-caption"><span>01:27 · Actual browser recording · Account label redacted</span><a href="assets/mt-project-workflow.mp4" download>Download MP4 (4.8 MB) <span aria-hidden="true">↓</span></a></div>
+      <ol class="steps"><li><span>01</span><h3>Start & monitor</h3><p>Start the recorded source and inspect real detections, track IDs, and source readiness.</p></li><li><span>02</span><h3>Investigate & respond</h3><p>Filter intrusion events, play an incident clip, and acknowledge the reviewed event.</p></li><li><span>03</span><h3>Replay & trace</h3><p>Play a stored recording and inspect saved webhook attempts: HTTP 503, then 204.</p></li></ol>
+      <aside class="context"><strong>What you’re viewing</strong><p>This page presents recorded evidence of MT Project. The FastAPI backend and detector run separately; GitHub Pages hosts this portfolio page. The footage is a public sample, and the webhook journal is an earlier persisted local test.</p></aside>
+    </section>
+    <section id="engineering" class="engineering section">
+      <div class="wrap"><div class="section-head"><div><p class="eyebrow">02 / BEHIND THE INTERFACE</p><h2>Built around the video pipeline.</h2></div><p>Capture, recording, and inference have independent execution paths, with bounded queues and visible health.</p></div>
+        <div class="pipeline" aria-label="Processing architecture"><div><small>INPUT</small><strong>RTSP / HTTP / video</strong><p>Per-camera capture</p></div><span aria-hidden="true">→</span><div><small>PROCESS</small><strong>YOLO + ByteTrack</strong><p>Latest-frame inference</p></div><span aria-hidden="true">→</span><div><small>DECIDE</small><strong>Polygon entry rules</strong><p>Track-based cooldowns</p></div><span aria-hidden="true">→</span><div><small>PERSIST</small><strong>Evidence + outbox</strong><p>Database + signed retries</p></div></div>
+        <div class="engineering-grid"><article><span class="number">A</span><h3>Independent recording</h3><p>A bounded recording queue and separate inference path keep slow detection from blocking recording. Dropped and skipped frames are reported separately.</p></article><article><span class="number">B</span><h3>Explainable incidents</h3><p>Events retain the triggering zone, class, confidence, track, snapshot, and pre/post-event clip with an explicit trigger offset.</p></article><article><span class="number">C</span><h3>Traceable delivery</h3><p>A durable outbox, signed webhook payloads, retry leases, and per-attempt outcomes make delivery behavior inspectable.</p></article><article><span class="number">D</span><h3>Controlled access</h3><p>Role-based access, revocable sessions, encrypted source credentials, and authenticated media routes protect the workspace.</p></article></div>
+      </div>
+    </section>
+    <section class="section validation wrap"><div><p class="eyebrow">03 / EVIDENCE & BOUNDARIES</p><h2>Real functionality.<br>Clear validation scope.</h2><p class="intro">An independent, AI-assisted engineering prototype built with original application code and credited public libraries.</p><a class="text-link" href="https://github.com/BilalZaka37/mt-project/blob/main/docs/VALIDATION.md">Read the executed validation <span aria-hidden="true">↗</span></a></div><div class="validation-list"><article><h3>Demonstrated locally</h3><p>CPU YOLO processing, tracking, zone alerts, incident clips, recording playback, reconnection tests, and real local webhook retries.</p></article><article><h3>Deployment artifacts included</h3><p>Docker, PostgreSQL configuration, migrations, automated tests, and architecture documentation. The current runtime uses one application process.</p></article><article><h3>Further acceptance required</h3><p>Physical RTSP cameras, GPU hardware, sustained capacity, target-server Docker/PostgreSQL operation, and production security. No accuracy score or uptime guarantee is claimed.</p></article></div></section>
+    <section class="closing wrap"><div><p class="eyebrow">EXPLORE THE ENGINEERING</p><h2>See how MT Project works.</h2></div><div class="actions"><a class="button" href="https://github.com/BilalZaka37/mt-project">Open the GitHub repository <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/BilalZaka37/mt-project/blob/main/README.md">Setup instructions</a></div></section>
+  </main>
+  <footer class="wrap footer"><span>MT Project · Video intelligence, with purpose.</span><p>Sample footage: <a href="https://github.com/opencv/opencv/blob/4.x/samples/data/vtest.avi">OpenCV vtest.avi</a>. <a href="https://github.com/BilalZaka37/mt-project/blob/main/docs/THIRD_PARTY.md">Third-party notices</a>.</p></footer>
+</body>
+</html>
