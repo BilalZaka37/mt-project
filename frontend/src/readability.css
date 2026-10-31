@@ -1,0 +1,36 @@
+/* MT Project: readable operational metadata across desktop and mobile. */
+.page-title p,.section-title p{color:#71816f;font-size:11px}
+.stat>div{color:#697d67;font-size:11px}
+.stat>small{color:#748470;font-size:10px}
+.empty p,.activity-empty p{color:#7b8c72;font-size:11px}
+.activity-empty>span{color:#839777;font-size:9px}
+.intel-note p{color:#728767;font-size:11px}
+.intel-note h3{color:#50733f}
+.badge.neutral{color:#6c805b}.badge.green{color:#4e7b37}
+.text-muted,.subtle-text,label small{color:#72866a}
+.camera-info p,.camera-meta{color:#788b6d}
+.camera-meta{font-size:9px}
+.monitor-footer{color:#7e906f;font-size:9px}
+.source-types{color:#7f946e;font-size:9px}
+.activity-item strong{color:#4e7040;font-size:11px}
+.activity-item p{color:#7e946d;font-size:10px}
+.activity-item small{color:#8b9f79;font-size:9px}
+.config-note{color:#758f60}.config-note p{font-size:11px}
+td{color:#587549;font-size:12px}td small{color:#80976a;font-size:10px}
+th{color:#728c5b;font-size:10px}
+.system-details dt{color:#7c9267}.system-details dd{color:#51743c}
+.modal-heading p,.login-form>p,.login-form .login-help{color:#7e9369}
+.login-form label,.configuration label,.account-form label{color:#65814f}
+.filters input,.filters select{font-size:12px}
+.section-title>select{font-size:11px}
+.camera-info h3{font-size:13px}
+.camera-info p{font-size:10px}
+.role-explainer{color:#7d9668;font-size:10px}
+.role-explainer strong{color:#597c40;font-size:11px}
+.pagination{color:#7a9365;font-size:11px}
+.frame-caption{position:absolute;top:12px;left:12px;background:#183322d9;color:#dfebd5;font-size:10px;border-radius:4px;padding:7px 10px;pointer-events:none}
+.camera-grid:has(.camera-card:only-child){grid-template-columns:1fr}
+.activity-list{max-height:310px;overflow-y:auto}
+.activity-item>div{min-width:0}
+.activity-item p{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:720px){.source-types{font-size:8px}.monitor-footer{font-size:8px}.page-title p{font-size:11px}}
